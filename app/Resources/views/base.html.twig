@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <?php
+    include_once('../config/config.php');
+    ?>
+    <title>Project</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    <!--datepicker-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <!--selectbox-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <script type="text/javascript">
+
+    </script>
+    {% block javascripts %}
+      {% javascripts '@AppRestauranteBundle/Resources/public/js/*' %}
+      <script src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+    {% endblock %}
+    {% block stylesheets %}
+      {% stylesheets
+                'bundles/apprestaurante/css/*'
+                filter='cssrewrite,?yui_css'
+      %}
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="all" />
+      {% endstylesheets %}
+    {% endblock stylesheets %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <ul class="headerMenu">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="{{ path('afiseaza_restaurante')}}">Restaurante</a></li>
+          <li>Despre</li>
+          <li>Ajutor</li>
+        </ul>
+        <div class="subHeader">
+          {% image '@AppRestauranteBundle/Resources/public/images/banner_restaurant.jpg' %}
+          <img src="{{ asset_url }}" alt="Example" />
+          {% endimage %}
+        </div>
+      </div>
+      {% block container %}
+      {%endblock%}
+    </div>
+</html>

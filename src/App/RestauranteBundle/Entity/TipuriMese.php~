@@ -1,0 +1,28 @@
+<?php
+
+namespace App\RestauranteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Masa
+ *
+ * @ORM\Table(name="TipuriMese")
+ * @ORM\Entity(repositoryClass="App\RestauranteBundle\Entity\MasaRepository")
+ */
+class TipuriMese {
+
+  /**
+   * @ORM\Id() @ORM\Column(type="integer")
+   *  */
+  protected $id;
+
+  /**
+   * ORM\Column(name="tip_masa", type="string", length=50, nullable=false)
+   */
+  protected $tipMasa;
+
+  /** @ORM\OneToMany(targetEntity="mese", mappedBy="tipMasa") */
+  protected $mese;
+
+}

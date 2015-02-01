@@ -1,0 +1,35 @@
+<?php
+
+namespace App\RestauranteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Masa
+ *
+ * @ORM\Table(name="Mese")
+ * @ORM\Entity(repositoryClass="App\RestauranteBundle\Entity\MasaRepository")
+ */
+class Mese {
+
+  /**
+   * @ORM\Id()
+   * @ORM\ManyToOne(targetEntity="Restaurant", inversedBy="Mese")
+   * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id", nullable=false)
+   */
+  protected $restaurant;
+
+  /**
+   * @ORM\Id()
+   * @ORM\ManyToOne(targetEntity="TipuriMese", inversedBy="mese")
+   * @ORM\JoinColumn(name="mese_id", referencedColumnName="id", nullable=false)
+   */
+  protected $tipMasa;
+
+  /**
+   * @var integer
+   * @ORM\Column(name="mese_totale", type="integer")
+   */
+  private $numarMese;
+
+}

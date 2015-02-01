@@ -1,0 +1,30 @@
+<?php
+
+namespace App\RestauranteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Masa
+ *
+ * @ORM\Table(name="mese")
+ * @ORM\Entity(repositoryClass="App\RestauranteBundle\Entity\MasaRepository")
+ */
+class Masa {
+
+  /**
+   * @var integer
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $id;
+
+  /**
+   * @var integer
+   * @ORM\Column(name="nr_mese", type="integer")
+   */
+  private $nrMese;
+
+}
